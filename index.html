@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PH Tube</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.9/daisyui.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+      .active {
+        background-color: red;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="max-w-screen-2xl mx-auto">
+    <header>
+      <nav
+        class="flex justify-between items-center py-6 px-2 border-gray-100 border-b-2"
+      >
+        <div>
+          <figure>
+            <img src="assets/Group 26.png" alt="logo" class="w-32" />
+          </figure>
+        </div>
+        <div class="">
+          <label class="input">
+            <svg
+              class="h-[1em] opacity-50"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <g
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2.5"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </g>
+            </svg>
+            <input
+              id="searchInput"
+              type="search"
+              class="grow"
+              placeholder="Search"
+            />
+            <!-- <kbd class="kbd kbd-sm">⌘</kbd>
+            <kbd class="kbd kbd-sm">K</kbd> -->
+          </label>
+        </div>
+        <div>
+          <button class="btn text-xl bg-red-400 rounded-xl text-white">
+            Rakib Islam
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main class="mb-8">
+      <!-- Open the modal using ID.showModal() method -->
+      <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+      <dialog id="video_details" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box" id="modalBox">
+          <!-- <h3 class="text-lg font-bold">Hello!</h3>
+          <p class="py-4">Press ESC key or click the button below to close</p> -->
+
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+      <section
+        id="btnContainer"
+        class="flex justify-between items-center w-1/3 mx-auto my-8"
+      >
+        <button id="btnAll" class="btn rounded-xl" onclick="loadVideos()">
+          All
+        </button>
+        <!--   <button class="btn rounded-xl bg-gray-100">Music</button>
+        <button class="btn rounded-xl bg-gray-100">Comedy</button>
+        <button class="btn rounded-xl bg-gray-100">Drawing</button> -->
+      </section>
+      <section class="grid grid-cols-4 gap-4" id="videosContainer">
+        <!-- <div class="bg-slate-100 rounded-xl">
+          <figure>
+            <img src="assets/Rectangle 1@2x.png" alt="img" class="w-full" />
+          </figure>
+          <div class="flex gap-4 px-4 py-6">
+            <figure>
+              <img src="assets/Ellipse 1-1.png" alt="img" class="w-full" />
+            </figure>
+            <div>
+              <h3 class="font-bold">
+                Building a Winning UX Strategy Using the Kano Model
+              </h3>
+              <p class="text-sm">By <span>Rakib Islam</span></p>
+              <p class="text-sm">10M+ views, 1 month ago</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-slate-100 rounded-xl">
+          <figure>
+            <img src="assets/Rectangle 1@2x.png" alt="img" class="w-full" />
+          </figure>
+          <div class="flex gap-4 px-4 py-6">
+            <figure>
+              <img src="assets/Ellipse 1-1.png" alt="img" class="w-full" />
+            </figure>
+            <div>
+              <h3 class="font-bold">
+                Building a Winning UX Strategy Using the Kano Model
+              </h3>
+              <p class="text-sm">By <span>Rakib Islam</span></p>
+              <p class="text-sm">10M+ views, 1 month ago</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-slate-100 rounded-xl">
+          <figure>
+            <img src="assets/Rectangle 1@2x.png" alt="img" class="w-full" />
+          </figure>
+          <div class="flex gap-4 px-4 py-6">
+            <figure>
+              <img src="assets/Ellipse 1-1.png" alt="img" class="w-full" />
+            </figure>
+            <div>
+              <h3 class="font-bold">
+                Building a Winning UX Strategy Using the Kano Model
+              </h3>
+              <p class="text-sm">By <span>Rakib Islam</span></p>
+              <p class="text-sm">10M+ views, 1 month ago</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-slate-100 rounded-xl">
+          <figure>
+            <img src="assets/Rectangle 1@2x.png" alt="img" class="w-full" />
+          </figure>
+          <div class="flex gap-4 px-4 py-6">
+            <figure>
+              <img src="assets/Ellipse 1-1.png" alt="img" class="w-full" />
+            </figure>
+            <div>
+              <h3 class="font-bold">
+                Building a Winning UX Strategy Using the Kano Model
+              </h3>
+              <p class="text-sm">By <span>Rakib Islam</span></p>
+              <p class="text-sm">10M+ views, 1 month ago</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-slate-100 rounded-xl">
+          <figure>
+            <img src="assets/Rectangle 1@2x.png" alt="img" class="w-full" />
+          </figure>
+          <div class="flex gap-4 px-4 py-6">
+            <figure>
+              <img src="assets/Ellipse 1-1.png" alt="img" class="w-full" />
+            </figure>
+            <div>
+              <h3 class="font-bold">
+                Building a Winning UX Strategy Using the Kano Model
+              </h3>
+              <p class="text-sm">By <span>Rakib Islam</span></p>
+              <p class="text-sm">10M+ views, 1 month ago</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-slate-100 rounded-xl">
+          <figure>
+            <img src="assets/Rectangle 1@2x.png" alt="img" class="w-full" />
+          </figure>
+          <div class="flex gap-4 px-4 py-6">
+            <figure>
+              <img src="assets/Ellipse 1-1.png" alt="img" class="w-full" />
+            </figure>
+            <div>
+              <h3 class="font-bold">
+                Building a Winning UX Strategy Using the Kano Model
+              </h3>
+              <p class="text-sm">By <span>Rakib Islam</span></p>
+              <p class="text-sm">10M+ views, 1 month ago</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-slate-100 rounded-xl">
+          <figure>
+            <img src="assets/Rectangle 1@2x.png" alt="img" class="w-full" />
+          </figure>
+          <div class="flex gap-4 px-4 py-6">
+            <figure>
+              <img src="assets/Ellipse 1-1.png" alt="img" class="w-full" />
+            </figure>
+            <div>
+              <h3 class="font-bold">
+                Building a Winning UX Strategy Using the Kano Model
+              </h3>
+              <p class="text-sm">By <span>Rakib Islam</span></p>
+              <p class="text-sm">10M+ views, 1 month ago</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-slate-100 rounded-xl">
+          <figure>
+            <img src="assets/Rectangle 1@2x.png" alt="img" class="w-full" />
+          </figure>
+          <div class="flex gap-4 px-4 py-6">
+            <figure>
+              <img src="assets/Ellipse 1-1.png" alt="img" class="w-full" />
+            </figure>
+            <div>
+              <h3 class="font-bold">
+                Building a Winning UX Strategy Using the Kano Model
+              </h3>
+              <p class="text-sm">By <span>Rakib Islam</span></p>
+              <p class="text-sm">10M+ views, 1 month ago</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-slate-100 rounded-xl">
+          <figure>
+            <img src="assets/Rectangle 1@2x.png" alt="img" class="w-full" />
+          </figure>
+          <div class="flex gap-4 px-4 py-6">
+            <figure>
+              <img src="assets/Ellipse 1-1.png" alt="img" class="w-full" />
+            </figure>
+            <div>
+              <h3 class="font-bold">
+                Building a Winning UX Strategy Using the Kano Model
+              </h3>
+              <p class="text-sm">By <span>Rakib Islam</span></p>
+              <p class="text-sm">10M+ views, 1 month ago</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-slate-100 rounded-xl">
+          <figure>
+            <img src="assets/Rectangle 1@2x.png" alt="img" class="w-full" />
+          </figure>
+          <div class="flex gap-4 px-4 py-6">
+            <figure>
+              <img src="assets/Ellipse 1-1.png" alt="img" class="w-full" />
+            </figure>
+            <div>
+              <h3 class="font-bold">
+                Building a Winning UX Strategy Using the Kano Model
+              </h3>
+              <p class="text-sm">By <span>Rakib Islam</span></p>
+              <p class="text-sm">10M+ views, 1 month ago</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-slate-100 rounded-xl">
+          <figure>
+            <img src="assets/Rectangle 1@2x.png" alt="img" class="w-full" />
+          </figure>
+          <div class="flex gap-4 px-4 py-6">
+            <figure>
+              <img src="assets/Ellipse 1-1.png" alt="img" class="w-full" />
+            </figure>
+            <div>
+              <h3 class="font-bold">
+                Building a Winning UX Strategy Using the Kano Model
+              </h3>
+              <p class="text-sm">By <span>Rakib Islam</span></p>
+              <p class="text-sm">10M+ views, 1 month ago</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-slate-100 rounded-xl">
+          <figure>
+            <img src="assets/Rectangle 1@2x.png" alt="img" class="w-full" />
+          </figure>
+          <div class="flex gap-4 px-4 py-6">
+            <figure>
+              <img src="assets/Ellipse 1-1.png" alt="img" class="w-full" />
+            </figure>
+            <div>
+              <h3 class="font-bold">
+                Building a Winning UX Strategy Using the Kano Model
+              </h3>
+              <p class="text-sm">By <span>Rakib Islam</span></p>
+              <p class="text-sm">10M+ views, 1 month ago</p>
+            </div>
+          </div>
+        </div> -->
+        <section
+          class="col-span-full flex flex-col items-center justify-center"
+        >
+          <figure>
+            <img src="assets/Group 18.png" alt="img" />
+          </figure>
+          <p class="text-3xl font-bold">
+            Oops!! Sorry, There is no content here
+          </p>
+        </section>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

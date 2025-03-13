@@ -66,6 +66,7 @@ function displayCategories(categories) {
 
   for (let cat of categories) {
     const btnDiv = document.createElement("div");
+    // btnDiv.classList.add("flex", "gap-2", "items-center");
 
     btnDiv.innerHTML = `
     <button id='btn-${cat.category_id}' class="btn rounded-xl bg-gray-100" onclick ='loadVideosByCategories(${cat.category_id})'>${cat.category}</button>
